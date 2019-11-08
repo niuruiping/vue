@@ -2,6 +2,7 @@
 <template>
     <div class="logbox">
         <div class="main">
+            
             <input type="text" placeholder="用户名" v-model="userName" @blur="checkUserName">
             <input type="password" placeholder="登录密码" v-model="userPwd">
             <button @click="login">登录</button>

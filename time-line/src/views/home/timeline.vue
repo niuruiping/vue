@@ -54,6 +54,7 @@ export default {
         ...mapMutations({
             showModal:'replymodal/showModal'
         }),
+        // 评论
         reply(value){
             this.replyInfo={
                 type:'comment',
