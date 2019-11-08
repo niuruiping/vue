@@ -1,29 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 
 import Home from '../views/home/index.vue'
+import Login from '../views/login.vue'
+import Register from '../views/register.vue'
+import Post from '../views/post.vue'
+
 
 import Timeline from '../views/home/timeline'
 import My from '../views/home/my'
 
-import Login from '../views/login/login'
-import Enroll from '../views/login/enroll.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',  // 首页重定向到圈子
     name: 'home',
-    // redirect: '/home/timeline',
-    redirect: '/login'
+    redirect: '/home/timeline'
   },
   {
     path: '/login', // 登陆页面
     component: Login
   },
   {
-    path: '/enroll',  // 注册页面
-    component: Enroll
+    path: '/post',  // 发送朋友圈
+    component: Post
+  },
+  {
+    path: '/register',  // 注册页面
+    component: Register
   },
   {
     path: '/favor', // 收藏页面
@@ -73,6 +82,28 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+
+// 添加导航守卫
+const whiteList=['/login','/register']
+router.beforeEach((to,from,next)=>{
+  Nprogress.start();
+  let isLogin=window.sessionStorage.getItem('isLogin');
+  if(!isLogin){
+    if(whiteList.indexOf(to.path)===-1){
+      Nprogress.done();
+      next('/login');
+    }else{
+      next();
+    }
+  }else{
+    next();
+  }
+})
+
+router.afterEach((to,from)=>{
+  Nprogress.done();
 })
 
 export default router
