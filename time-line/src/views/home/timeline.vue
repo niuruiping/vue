@@ -130,6 +130,7 @@ export default {
     margin-right: .2rem;
     border-radius: 50%;
     // background: gold;
+    
 }
 .Tfooter{
     width: 100%;
@@ -148,5 +149,11 @@ export default {
 }
 li:last-child{
     border: none;
+}
+.imp{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
 }
 </style>
