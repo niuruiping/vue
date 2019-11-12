@@ -1,7 +1,8 @@
+
 import Mock from 'mockjs'
 Mock.mock('/list','get',{
-    'hot|30':[{
+    'kk|30':[{
         id:'@id',
-        title:'@ctitle'
+        title:'@region'
     }]
 })
