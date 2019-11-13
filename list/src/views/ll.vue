@@ -11,15 +11,15 @@
 import axios from 'axios'
 export default {
   data(){
-    return{
-      list:[]
-    }
-  },
-  created(){
-    axios.get('/list').then(res=>{
-      this.list=res.data.kk
-    })
-  }
+	    return{
+	      list:[]
+	    }
+	  },
+	  created(){
+	    axios.get('/list').then(res=>{
+	      this.list=res.data.kk
+	    })
+	  }
     
 }
 </script>
