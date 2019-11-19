@@ -9,6 +9,7 @@ function readJson(path){
     }
     json = JSON.parse(json);
     return json;
+    
 }
 
 // 写入json文件

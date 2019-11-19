@@ -6,5 +6,6 @@ function msg(options){
 }
 
 module.exports = {
+    
     msg
 }
